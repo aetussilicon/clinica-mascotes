@@ -1,14 +1,15 @@
-import './App.css'
-import Hero from './components/Hero'
+import './App.css';
+import Hero from './components/Hero';
+import { UserMenuProvider } from './context/userMenu';
 
 function App() {
-
-
-  return (
-    <>
-     <Hero/> 
-    </>
-  )
+    return (
+        <>
+            <UserMenuProvider>
+                <Hero />
+            </UserMenuProvider>
+        </>
+    );
 }
 
-export default App
+export default App;
