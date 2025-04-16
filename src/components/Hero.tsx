@@ -1,8 +1,10 @@
 import { Calendar } from 'lucide-react';
+import Header from './Header';
 
 const Hero = () => {
     return (
         <>
+        
             <div className='relative h-screen overflow-hidden'>
                 <div className='absolute top-0 left-0 w-full h-screen overflow-hidden'>
                     <video autoPlay loop muted className='object-cover w-full h-full'>
@@ -11,6 +13,7 @@ const Hero = () => {
                     <div className='absolute top-0 left-0 w-full h-full bg-black opacity-50 z-20'></div>
                 </div>
                 <div className='mx-[20%] h-screen absolute text-white z-30'>
+                <Header />
                     <div className='mx-auto  flex flex-col items-start justify-center h-full gap-5'>
                         <div className='flex flex-col gap-5'>
                         <h3 className='font-semibold text-primary text-xl'>Clínica Veterinária Mascotes</h3>
