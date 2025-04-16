@@ -18,17 +18,17 @@ const Hero = () => {
                
                 <div className=' absolute inset-0 text-white z-30 ssm:mx-[10%] xl:mx-[20%]'>
                 <Header />
-                    <div
-                     className={`
-                        absolute
-                        ssm:top-[21rem] xl:top-0 
-                        left-0 right-0 bottom-0
-                        flex flex-col items-start
-                        gap-5 xl:justify-center
-                        transition-all duration-500
-                      `}
-                      style={{ transform: isMenuOpen ? 'translateY(60px)' : 'translateY(0)' }}
-                    >
+                <div className={`
+                    absolute
+                    left-0 right-0
+                    flex flex-col items-start
+                    gap-5
+                    transition-all duration-500
+                    ${isMenuOpen ? 
+                        'ssm:top-[26rem] xl:top-0' :  // Posição quando menu aberto
+                        'top-1/2 -translate-y-1/2'         // Centralizado quando menu fechado
+                    }
+                `}>
                         <div className='flex flex-col gap-5'>
                             <h3 className='font-semibold text-primary text-xl'>Clínica Veterinária Mascotes</h3>
                             <h1 className='font-bold mt-2 ssm:w-full xl:w-[70%] ssm:text-3xl/tight xl:text-6xl/tight '>Compromisso com a saúde do seu pet</h1>
