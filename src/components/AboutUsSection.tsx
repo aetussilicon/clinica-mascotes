@@ -26,7 +26,7 @@ const AboutUsSection = () => {
                     title='Endereço'
                     info='Rua Brácara, 162 - Jardim Iae, São Paulo - SP, 05890-020'
                 />
-                <InfoCard icon={<Phone color='#04d16a' size={28} />} title='Contato' info='11) 97732-4705' />
+                <InfoCard icon={<Phone color='#04d16a' size={28} />} title='Contato' info='(11) 97732-4705' />
                 <InfoCard
                     icon={<Mail color='#04d16a' size={28} />}
                     title='Email'
