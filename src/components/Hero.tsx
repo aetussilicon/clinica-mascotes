@@ -50,7 +50,7 @@ const Hero = () => {
                             <Calendar color='#fff' /> <span className='font-medium'>Agendar sua consulta</span>
                         </button>
 
-                        <div className='grid ssm:grid-cols-2 xl:grid-cols-4 gap-4 mt-10'>
+                        <div className='grid ssm:grid-cols-2 md:grid-cols-4 gap-4 mt-10'>
                             <HeroCard text='Consultas' icon={<Stethoscope size={40}/>}/>
                             <HeroCard text='Exames' icon={<TestTube size={40} />}/>
                             <HeroCard text='Cirurgias' icon={<HeartPulse size={40} />}/>

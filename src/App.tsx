@@ -1,5 +1,6 @@
 import './App.css';
 import Hero from './components/Hero';
+import ServicesSection from './components/ServicesSection';
 import { UserMenuProvider } from './context/userMenu';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
         <>
             <UserMenuProvider>
                 <Hero />
+                <ServicesSection/>
             </UserMenuProvider>
         </>
     );
