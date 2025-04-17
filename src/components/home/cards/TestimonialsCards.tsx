@@ -7,7 +7,7 @@ interface TestimonialCardsProps {
     testimonial: string;
 }
 
-const TestimonialsCard: React.FC<TestimonialCardsProps> = ({ name, role, testimonial }) => {
+const TestimonialsCards: React.FC<TestimonialCardsProps> = ({ name, role, testimonial }) => {
     return (
         <div className='w-96 h-fit p-4 bg-white rounded-lg shadow-md flex flex-col gap-2'>
             <div className='flex flex-col gap-5'>
@@ -26,4 +26,4 @@ const TestimonialsCard: React.FC<TestimonialCardsProps> = ({ name, role, testimo
     );
 };
 
-export default TestimonialsCard;
+export default TestimonialsCards;

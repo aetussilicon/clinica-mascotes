@@ -1,9 +1,6 @@
-import AboutUsSection from '../components/AboutUsSection';
-import FeaturedProducts from '../components/FeaturedProducts';
-import Footer from '../components/Footer';
-import Hero from '../components/Hero';
-import ServicesSection from '../components/ServicesSection';
-import TestimonialsSection from '../components/TestimonialsSection';
+import Footer from "../components/Footer";
+import { AboutUsSection, FeaturedProducts, Hero, ServicesSection, TestimonialsSection } from "../components/home";
+
 
 export function Home() {
     return (

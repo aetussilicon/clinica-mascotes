@@ -1,5 +1,5 @@
 import { Bath, Scissors, ShieldPlus, Stethoscope } from 'lucide-react';
-import ServicesCard from './ServicesCard';
+import ServicesCards from './cards/ServicesCards';
 
 const ServicesSection = () => {
     return (
@@ -13,22 +13,22 @@ const ServicesSection = () => {
                     </p>
                 </div>
                 <div className='grid ssm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 ssm:gap-5 md:gap-10 '>
-                    <ServicesCard
+                    <ServicesCards
                         icon={<Stethoscope size={35} color='#04d16a' />}
                         title='Cuidados Veterinários'
                         description='Check-ups completos, vacinação e tratamentos para todos os pets'
                     />
-                    <ServicesCard
+                    <ServicesCards
                         icon={<Bath size={35} color='#04d16a' />}
                         title='Estética Animal'
                         description='Banho, tosa e cuidados especiais para deixar seu pet impecável.'
                     />
-                    <ServicesCard
+                    <ServicesCards
                         icon={<ShieldPlus size={35} color='#04d16a' />}
                         title='Emergências Pet'
                         description='Cuidados urgentes e especializados quando seu pet mais precisa.'
                     />
-                    <ServicesCard
+                    <ServicesCards
                         icon={<Scissors size={35} color='#04d16a' />}
                         title='Cuidados Personalizados'
                         description='Atenção individualizada para animais que exigem necessidades especiais.'

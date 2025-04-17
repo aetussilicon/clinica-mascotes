@@ -1,7 +1,7 @@
 import { Calendar, HeartPulse, Stethoscope, Syringe, TestTube } from 'lucide-react';
-import Header from './Header';
-import { useUserMenu } from '../context/userMenu';
-import HeroCard from './HeroCards';
+import Header from '../Header';
+import { useUserMenu } from '../../context/userMenu';
+import HeroCard from './cards/HeroCards';
 
 const Hero = () => {
     const { isMenuOpen } = useUserMenu();

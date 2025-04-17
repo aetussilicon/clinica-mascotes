@@ -1,4 +1,4 @@
-import TestimonialsCard from "./TestimonialsCard";
+import TestimonialsCards from "./cards/TestimonialsCards";
 
 const TestimonialsSection = () => {
     const testimonials = [
@@ -33,7 +33,7 @@ const TestimonialsSection = () => {
                 </div>
                 <div className="flex gap-5 ssm:flex-col xl:flex-row">
                 {testimonials.map((testimonial, index) => (
-                <TestimonialsCard
+                <TestimonialsCards
                     key={index}
                     testimonial={testimonial.testimonial}
                     name={testimonial.name}

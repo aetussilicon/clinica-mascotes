@@ -1,4 +1,4 @@
-import FeaturedProductsCards from "./FeaturedProductsCards";
+import FeaturedProductsCards from "./cards/FeaturedProductsCards";
 
 const FeaturedProducts = () => {
 
