@@ -2,9 +2,15 @@ import { Mail } from 'lucide-react';
 import Hamburger from './Hamburger';
 import { useUserMenu } from '../context/userMenu';
 import { motion } from 'framer-motion';
+import React from 'react';
 
-const Header = () => {
+const Header: React.FC<{setBlackText: boolean}> = ({setBlackText = false}) => {
     const { isMenuOpen } = useUserMenu();
+
+
+    const styles = {
+        text: `${!setBlackText ? 'text-white' : 'text-black'} text-xl font-bold hover:text-primary transition duration-200`
+    }
 
     const UlMobile = () => {
         const variants = {
@@ -26,7 +32,7 @@ const Header = () => {
                     <li className='group'>
                         <a
                             href='#home'
-                            className='text-white text-xl font-bold hover:text-primary transition duration-200'
+                            className={styles.text}
                         >
                             Home
                         </a>
@@ -35,7 +41,7 @@ const Header = () => {
                     <li className='group'>
                         <a
                             href='#home'
-                            className='text-white text-xl font-bold hover:text-primary transition duration-200'
+                            className={styles.text}
                         >
                             Serviços
                         </a>
@@ -44,7 +50,7 @@ const Header = () => {
                     <li className='group'>
                         <a
                             href='#home'
-                            className='text-white text-xl font-bold hover:text-primary transition duration-200'
+                            className={styles.text}
                         >
                             Sobre nós
                         </a>
@@ -53,7 +59,7 @@ const Header = () => {
                     <li className='group'>
                         <a
                             href='#home'
-                            className='text-white text-xl font-bold hover:text-primary transition duration-200'
+                            className={styles.text}
                         >
                             Contato
                         </a>
@@ -63,6 +69,7 @@ const Header = () => {
                 <div className='flex items-center gap-4 ssm:flex-col lg:flex-row mt-4'>
                     <button
                         type='button'
+                        onClick={() => window.location.href = '/auth'}
                         className='border py-2 px-4 w-full rounded-md text-sm hover:bg-primary hover:border-primary transition duration-300'
                     >
                         Entrar
@@ -104,11 +111,11 @@ const Header = () => {
                 </div>
                 <div className={`hidden xl:block xl:z-10 `}>
                     <div className='flex '>
-                        <ul className={`flex items-center gap-4 ssm:flex-col lg:flex-row mr-20`}>
+                        <ul className={`flex items-center gap-4 ssm:flex-col lg:flex-row mr-32`}>
                             <li className='group'>
                                 <a
                                     href='#home'
-                                    className='text-white text-xl font-bold hover:text-primary transition duration-200'
+                                    className={styles.text}
                                 >
                                     Home
                                 </a>
@@ -117,7 +124,7 @@ const Header = () => {
                             <li className='group'>
                                 <a
                                     href='#home'
-                                    className='text-white text-xl font-bold hover:text-primary transition duration-200'
+                                    className={styles.text}
                                 >
                                     Serviços
                                 </a>
@@ -126,7 +133,7 @@ const Header = () => {
                             <li className='group'>
                                 <a
                                     href='#home'
-                                    className='text-white text-xl font-bold hover:text-primary transition duration-200'
+                                    className={styles.text}
                                 >
                                     Sobre nós
                                 </a>
@@ -135,7 +142,7 @@ const Header = () => {
                             <li className='group'>
                                 <a
                                     href='#home'
-                                    className='text-white text-xl font-bold hover:text-primary transition duration-200'
+                                    className={styles.text}
                                 >
                                     Contato
                                 </a>
@@ -145,7 +152,8 @@ const Header = () => {
                         <div className='flex items-center gap-4 ssm:flex-col lg:flex-row'>
                             <button
                                 type='button'
-                                className='border py-2 px-4  rounded-md text-sm hover:bg-primary hover:border-primary transition duration-300'
+                                onClick={() => window.location.href = '/auth'}
+                                className='border py-2 px-4 rounded-md text-sm hover:bg-primary hover:border-primary transition duration-300'
                             >
                                 Entrar
                             </button>
