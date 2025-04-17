@@ -1,12 +1,12 @@
 import './App.css';
 import { UserMenuProvider } from './context/userMenu';
-import { Home } from './pages/Home';
+import { AppRoutes } from './Routes';
 
 function App() {
     return (
         <>
             <UserMenuProvider>
-                <Home />
+                <AppRoutes />
             </UserMenuProvider>
         </>
     );
