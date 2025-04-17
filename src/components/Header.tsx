@@ -1,4 +1,4 @@
-import { Mail, Phone } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import Hamburger from './Hamburger';
 import { useUserMenu } from '../context/userMenu';
 import { motion } from 'framer-motion';
@@ -61,10 +61,12 @@ const Header = () => {
                     </li>
                 </ul>
                 <div className='flex items-center gap-4 ssm:flex-col lg:flex-row mt-4'>
-                    <span className='flex items-center gap-2 text-white'>
-                        <Phone color='#04d16a' />
-                        <p>(11) 97732-4705</p>
-                    </span>
+                    <button
+                        type='button'
+                        className='border py-2 px-4 w-full rounded-md text-sm hover:bg-primary hover:border-primary transition duration-300'
+                    >
+                        Entrar
+                    </button>
                     <button className='flex items-center gap-2 border border-gray-500 p-2 rounded-md bg-white hover:bg-gray-300 transition duration-300'>
                         <Mail color='#000' size={20} />
                         <span className='text-black text-sm'>Enviar Mensagem</span>
@@ -84,13 +86,13 @@ const Header = () => {
                             alt='Logo'
                             width={150}
                             className={`
-                                ssm:fixed ssm:left-2 ssm:top-2 ssm:ml-0 ssm:mt-0
+                                ssm:absolute ssm:-left-10 ssm:top-2 ssm:ml-0 ssm:mt-0
                                 xl:static xl:ml-0 xl:mt-0
                             `}
                             style={{ zIndex: 30 }}
                         />
                         <div
-                            className='ssm:block lg:hidden ssm:fixed ssm:right-2 ssm:top-2 ssm:mr-0 ssm:mt-0 xl:static xl:mr-0 xl:mt-0'
+                            className='ssm:block lg:hidden ssm:absolute ssm:-right-10 ssm:top-2 ssm:mr-0 ssm:mt-0 xl:static xl:mr-0 xl:mt-0'
                             style={{ zIndex: 30 }}
                         >
                             <Hamburger />
@@ -141,10 +143,12 @@ const Header = () => {
                             </li>
                         </ul>
                         <div className='flex items-center gap-4 ssm:flex-col lg:flex-row'>
-                            <span className='flex items-center gap-2 text-white'>
-                                <Phone color='#04d16a' />
-                                <p>(11) 97732-4705</p>
-                            </span>
+                            <button
+                                type='button'
+                                className='border py-2 px-4  rounded-md text-sm hover:bg-primary hover:border-primary transition duration-300'
+                            >
+                                Entrar
+                            </button>
                             <button className='flex items-center gap-2 border border-gray-500 p-2 rounded-md bg-white hover:bg-gray-300 transition duration-300'>
                                 <Mail color='#000' size={20} />
                                 <span className='text-black text-sm'>Enviar Mensagem</span>
