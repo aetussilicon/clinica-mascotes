@@ -1,4 +1,5 @@
 import './App.css';
+import AboutUsSection from './components/AboutUsSection';
 import FeaturedProducts from './components/FeaturedProducts';
 import Hero from './components/Hero';
 import ServicesSection from './components/ServicesSection';
@@ -13,6 +14,7 @@ function App() {
                 <ServicesSection/>
                 <FeaturedProducts />
                 <TestimonialsSection />
+                <AboutUsSection />
             </UserMenuProvider>
         </>
     );
