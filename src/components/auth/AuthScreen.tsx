@@ -2,6 +2,8 @@ import { useState } from 'react';
 import LoginForm from './LoginForm';
 import SignupForm from './SIgnupForm';
 import SocialButton from './SocialButton';
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 
 const AuthScreen = () => {
     const [isLoginFlow, setIsLoginFlow] = useState(true);
@@ -9,7 +11,7 @@ const AuthScreen = () => {
     return (
         <div className='w-fit h-fit bg-white rounded-lg shadow-md flex flex-col gap-2 p-4 self-center'>
             <div className='flex flex-col gap-2 items-center'>
-                <h1 className='text-xl font-bold text-primaryHover mb-5'>Bem-Vindo de volta!</h1>
+                <h1 className='text-xl font-bold text-primaryHover mb-5'>{isLoginFlow ? 'Bem-Vindo de volta!' : 'Bem-Vindo'}</h1>
                 <form>
                     <div className='flex flex-col gap-2'>
                         {isLoginFlow ? <LoginForm /> : <SignupForm />}
@@ -37,6 +39,7 @@ const AuthScreen = () => {
                     <SocialButton provider='google' />
                     <SocialButton provider='outlook' />
                     <SocialButton provider='facebook' />
+                    <Link to="/" className='self-center relative items-center text-sm text-primary hover:text-primaryHover mt-2'><ArrowLeft size={20} className='absolute -left-6'/> Voltar para tela inicial</Link>
                 </div>
             </div>
         </div>
