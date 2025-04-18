@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import UserInfo from '../components/profile/UserInfo';
 import { useState } from 'react';
 import PetsInfo from '../components/profile/PetsInfo';
+import Purchases, {Purchase} from "../components/profile/Purchases.tsx";
 
 export function Profile() {
     const [page, setPage] = useState<number>(0);
@@ -24,6 +25,37 @@ export function Profile() {
         birthDate: '01/01/1990',
         rg: '12.345.678-9',
     };
+
+    const mockPurchases: Purchase[] = [
+        {
+            id: 'p1',
+            orderNumber: 'BR123456789',
+            date: '2024-07-20T10:30:00Z',
+            status: 'Entregue',
+            totalAmount: 150.75,
+        },
+        {
+            id: 'p2',
+            orderNumber: 'BR987654321',
+            date: '2024-07-22T15:00:00Z',
+            status: 'A caminho',
+            totalAmount: 89.90,
+        },
+        {
+            id: 'p3',
+            orderNumber: 'BR112233445',
+            date: '2024-07-23T09:15:00Z',
+            status: 'Processando',
+            totalAmount: 215.00,
+        },
+        {
+            id: 'p4',
+            orderNumber: 'BR556677889',
+            date: '2024-07-15T11:00:00Z',
+            status: 'Cancelado',
+            totalAmount: 55.20,
+        },
+    ];
 
     return (
         <Layout>
@@ -79,6 +111,10 @@ export function Profile() {
                                         <UserInfo user={user} />
                                     </>
                                 )}
+                                {page === 1 && (
+                                    <Purchases purchases={mockPurchases} />
+                                )}
+
                                 {page === 2 && <PetsInfo />}
                             </div>
                         </div>
