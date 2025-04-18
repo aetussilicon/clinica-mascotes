@@ -1,8 +1,12 @@
 import { Camera, PawPrint, PencilLine, ShoppingBag, User, UserIcon } from 'lucide-react';
 import Layout from '../components/Layout';
 import UserInfo from '../components/profile/UserInfo';
+import { useState } from 'react';
+import PetsInfo from '../components/profile/PetsInfo';
 
 export function Profile() {
+    const [page, setPage] = useState<number>(0);
+
     const user = {
         fullName: 'John Doe',
         email: 'johndoe@gmail.com',
@@ -52,7 +56,11 @@ export function Profile() {
                                 {['Informações', 'Pedidos', 'Meus Pets'].map((text, index) => (
                                     <button
                                         key={index}
-                                        className='flex items-center gap-2 px-4 py-1 hover:bg-gray-200 rounded-md transition'
+                                        onClick={() => setPage(index)}
+                                        type='button'
+                                        className={`flex items-center gap-2 px-4 py-1 rounded-md transition ${
+                                            page === index ? 'bg-gray-300' : 'hover:bg-gray-200'
+                                        }`}
                                     >
                                         {text === 'Informações' && <PencilLine className='w-5 h-5' />}
                                         {text === 'Pedidos' && <ShoppingBag className='w-5 h-5' />}
@@ -62,11 +70,16 @@ export function Profile() {
                                 ))}
                             </div>
                             <div className='border border-gray-300 rounded-lg p-4 mt-4 flex flex-col gap-4'>
-                                <h1 className='flex gap-2 text-xl md:text-2xl font-bold items-center text-primary'>
-                                    <User size={24} />
-                                    Dados pessoais
-                                </h1>
-                                <UserInfo user={user} />
+                                {page === 0 && (
+                                    <>
+                                        <h1 className='flex gap-2 text-xl md:text-2xl font-bold items-center text-primary'>
+                                            <User size={24} />
+                                            Dados pessoais
+                                        </h1>
+                                        <UserInfo user={user} />
+                                    </>
+                                )}
+                                {page === 2 && <PetsInfo />}
                             </div>
                         </div>
                     </div>
