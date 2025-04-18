@@ -17,7 +17,7 @@ const Hero = () => {
                 </div>
 
                 <div className=' absolute inset-0 text-white z-30 ssm:mx-[10%] xl:mx-[20%]'>
-                    <Header  setBlackText={false} />
+                    <Header  setBg={false} />
                     <div
                         className={`
                     absolute

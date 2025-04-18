@@ -4,13 +4,11 @@ import { useUserMenu } from '../context/userMenu';
 import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
 
-const Header: React.FC<{ setBlackText: boolean }> = ({ setBlackText = false }) => {
+const Header: React.FC<{ setBg: boolean }> = ({ setBg = false }) => {
     const { isMenuOpen } = useUserMenu();
 
     const styles = {
-        text: `${
-            !setBlackText ? 'text-white' : 'text-black'
-        } text-xl font-bold hover:text-primary transition duration-200`,
+        text: `text-white text-xl font-bold hover:text-primary transition duration-200`,
     };
 
     const UlMobile = () => {
@@ -59,7 +57,7 @@ const Header: React.FC<{ setBlackText: boolean }> = ({ setBlackText = false }) =
                     <button
                         type='button'
                         onClick={() => (window.location.href = '/auth')}
-                        className='border py-2 px-4 w-full rounded-md text-sm hover:bg-primary hover:border-primary transition duration-300'
+                        className={`border py-2 px-4 w-full rounded-md text-sm text-white hover:text-black ${setBg ? 'hover:bg-white' : 'hover:bg-primary hover:border-primary'} transition duration-300`}
                     >
                         Entrar
                     </button>
@@ -76,7 +74,7 @@ const Header: React.FC<{ setBlackText: boolean }> = ({ setBlackText = false }) =
         <motion.header
             transition={{ duration: 0.4, ease: 'easeInOut' }}
             className={`w-full overflow-hidden min-h-[83px] transition-colors duration-500 ${
-                setBlackText ? 'bg-emerald-500' : 'bg-transparent'
+                setBg ? 'bg-emerald-500' : 'bg-transparent'
             }`}
         >
             <nav className='ssm:mx-[10%] xl:mx-[20%] relative flex items-center px-4 py-2 justify-between ssm:flex-col lg:flex-row'>
@@ -107,7 +105,7 @@ const Header: React.FC<{ setBlackText: boolean }> = ({ setBlackText = false }) =
                                 animate={{ height: 'auto', opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
                                 transition={{ duration: 0.4, ease: 'easeInOut' }}
-                                className='overflow-hidden mb-5'
+                                className='overflow-hidden mb-5 xl:hidden ssm:block'
                             >
                                 <UlMobile />
                             </motion.div>
@@ -146,7 +144,7 @@ const Header: React.FC<{ setBlackText: boolean }> = ({ setBlackText = false }) =
                             <button
                                 type='button'
                                 onClick={() => (window.location.href = '/auth')}
-                                className='border py-2 px-4 rounded-md text-sm hover:bg-primary hover:border-primary transition duration-300'
+                                className={`border py-2 px-4 rounded-md text-white hover:text-black text-sm ${setBg ? 'hover:bg-white' : 'hover:bg-primary hover:border-primary'} transition duration-300`}
                             >
                                 Entrar
                             </button>
