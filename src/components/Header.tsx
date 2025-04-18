@@ -1,16 +1,17 @@
 import { Mail } from 'lucide-react';
 import Hamburger from './Hamburger';
 import { useUserMenu } from '../context/userMenu';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
 
-const Header: React.FC<{setBlackText: boolean}> = ({setBlackText = false}) => {
+const Header: React.FC<{ setBlackText: boolean }> = ({ setBlackText = false }) => {
     const { isMenuOpen } = useUserMenu();
 
-
     const styles = {
-        text: `${!setBlackText ? 'text-white' : 'text-black'} text-xl font-bold hover:text-primary transition duration-200`
-    }
+        text: `${
+            !setBlackText ? 'text-white' : 'text-black'
+        } text-xl font-bold hover:text-primary transition duration-200`,
+    };
 
     const UlMobile = () => {
         const variants = {
@@ -21,7 +22,7 @@ const Header: React.FC<{setBlackText: boolean}> = ({setBlackText = false}) => {
 
         return (
             <motion.div
-                className='mt-24'
+                className={`mt-24 `}
                 initial='initial'
                 animate='animate'
                 exit='exit'
@@ -30,37 +31,25 @@ const Header: React.FC<{setBlackText: boolean}> = ({setBlackText = false}) => {
             >
                 <ul className={`flex items-center gap-4 ssm:flex-col lg:flex-row`}>
                     <li className='group'>
-                        <a
-                            href='#home'
-                            className={styles.text}
-                        >
+                        <a href='#home' className={styles.text}>
                             Home
                         </a>
                         <div className='bg-primary transition-all duration-300 ease-in-out h-1 w-0 group-hover:w-full' />
                     </li>
                     <li className='group'>
-                        <a
-                            href='#home'
-                            className={styles.text}
-                        >
+                        <a href='#home' className={styles.text}>
                             Serviços
                         </a>
                         <div className='bg-primary transition-all duration-300 ease-in-out h-1 w-0 group-hover:w-full' />
                     </li>
                     <li className='group'>
-                        <a
-                            href='#home'
-                            className={styles.text}
-                        >
+                        <a href='#home' className={styles.text}>
                             Sobre nós
                         </a>
                         <div className='w-0 bg-primary transition-all duration-300 ease-in-out h-1 group-hover:w-full' />
                     </li>
                     <li className='group'>
-                        <a
-                            href='#home'
-                            className={styles.text}
-                        >
+                        <a href='#home' className={styles.text}>
                             Contato
                         </a>
                         <div className='w-0 bg-primary transition-all duration-300 ease-in-out h-1 group-hover:w-full' />
@@ -69,7 +58,7 @@ const Header: React.FC<{setBlackText: boolean}> = ({setBlackText = false}) => {
                 <div className='flex items-center gap-4 ssm:flex-col lg:flex-row mt-4'>
                     <button
                         type='button'
-                        onClick={() => window.location.href = '/auth'}
+                        onClick={() => (window.location.href = '/auth')}
                         className='border py-2 px-4 w-full rounded-md text-sm hover:bg-primary hover:border-primary transition duration-300'
                     >
                         Entrar
@@ -84,8 +73,13 @@ const Header: React.FC<{setBlackText: boolean}> = ({setBlackText = false}) => {
     };
 
     return (
-        <header className='bg-transparent'>
-            <nav className='relative flex items-center px-4 py-2 justify-between ssm:flex-col lg:flex-row'>
+        <motion.header
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+            className={`w-full overflow-hidden min-h-[83px] transition-colors duration-500 ${
+                setBlackText ? 'bg-emerald-500' : 'bg-transparent'
+            }`}
+        >
+            <nav className='ssm:mx-[10%] xl:mx-[20%] relative flex items-center px-4 py-2 justify-between ssm:flex-col lg:flex-row'>
                 <div className='flex items-center gap-4 xl:justify-between'>
                     <div className='flex items-center justify-between '>
                         <img
@@ -99,51 +93,50 @@ const Header: React.FC<{setBlackText: boolean}> = ({setBlackText = false}) => {
                             style={{ zIndex: 30 }}
                         />
                         <div
-                            className='ssm:block lg:hidden ssm:absolute ssm:-right-10 ssm:top-2 ssm:mr-0 ssm:mt-0 xl:static xl:mr-0 xl:mt-0'
+                            className='ssm:block lg:hidden ssm:absolute ssm:-right-10 ssm:top-4 ssm:mr-0 ssm:mt-0 xl:static xl:mr-0 xl:mt-0'
                             style={{ zIndex: 30 }}
                         >
                             <Hamburger />
                         </div>
                     </div>
-                    <div className={`${isMenuOpen ? 'block' : 'hidden'} xl:hidden`}>
-                        <UlMobile />
-                    </div>
+                    <AnimatePresence initial={false}>
+                        {isMenuOpen && (
+                            <motion.div
+                                key='mobile-menu'
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                                className='overflow-hidden mb-5'
+                            >
+                                <UlMobile />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
                 <div className={`hidden xl:block xl:z-10 `}>
                     <div className='flex '>
                         <ul className={`flex items-center gap-4 ssm:flex-col lg:flex-row mr-32`}>
                             <li className='group'>
-                                <a
-                                    href='#home'
-                                    className={styles.text}
-                                >
+                                <a href='#home' className={styles.text}>
                                     Home
                                 </a>
                                 <div className='bg-primary transition-all duration-300 ease-in-out h-1 w-0 group-hover:w-full' />
                             </li>
                             <li className='group'>
-                                <a
-                                    href='#home'
-                                    className={styles.text}
-                                >
+                                <a href='#home' className={styles.text}>
                                     Serviços
                                 </a>
                                 <div className='bg-primary transition-all duration-300 ease-in-out h-1 w-0 group-hover:w-full' />
                             </li>
                             <li className='group'>
-                                <a
-                                    href='#home'
-                                    className={styles.text}
-                                >
+                                <a href='#home' className={styles.text}>
                                     Sobre nós
                                 </a>
                                 <div className='w-0 bg-primary transition-all duration-300 ease-in-out h-1 group-hover:w-full' />
                             </li>
                             <li className='group'>
-                                <a
-                                    href='#home'
-                                    className={styles.text}
-                                >
+                                <a href='#home' className={styles.text}>
                                     Contato
                                 </a>
                                 <div className='w-0 bg-primary transition-all duration-300 ease-in-out h-1 group-hover:w-full' />
@@ -152,7 +145,7 @@ const Header: React.FC<{setBlackText: boolean}> = ({setBlackText = false}) => {
                         <div className='flex items-center gap-4 ssm:flex-col lg:flex-row'>
                             <button
                                 type='button'
-                                onClick={() => window.location.href = '/auth'}
+                                onClick={() => (window.location.href = '/auth')}
                                 className='border py-2 px-4 rounded-md text-sm hover:bg-primary hover:border-primary transition duration-300'
                             >
                                 Entrar
@@ -165,7 +158,7 @@ const Header: React.FC<{setBlackText: boolean}> = ({setBlackText = false}) => {
                     </div>
                 </div>
             </nav>
-        </header>
+        </motion.header>
     );
 };
 
