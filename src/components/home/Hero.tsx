@@ -15,9 +15,9 @@ const Hero = () => {
                     </video>
                     <div className='absolute top-0 left-0 w-full h-full bg-black opacity-50 z-20'></div>
                 </div>
-
+                <Header setBg={false} />
                 <div className=' absolute inset-0 text-white z-30 ssm:mx-[10%] xl:mx-[20%]'>
-                    <Header  setBg={false} />
+                    
                     <div
                         className={`
                     absolute
