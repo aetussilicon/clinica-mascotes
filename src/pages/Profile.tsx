@@ -11,7 +11,8 @@ import { getCustomer } from "../services/CustomersService.tsx";
 export function Profile() {
   const { uuid } = useParams();
   const [page, setPage] = useState<number>(0);
-  const [user, setUser] = useState<CustomerProps | undefined>(undefined);
+  const [user, setUser] = useState<CustomerProps>();
+  const [isEditing, setIsEditing] = useState<boolean>(false);
 
   useEffect(() => {
     if (!uuid) return;
@@ -86,7 +87,10 @@ export function Profile() {
                   {user?.email}
                 </p>
               </div>
-              <button className="border border-primary text-primary rounded-md w-full py-2 flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition">
+              <button
+                className="border border-primary text-primary rounded-md w-full py-2 flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition"
+                onClick={() => setIsEditing(!isEditing)}
+              >
                 <PencilLine className="w-5 h-5 mr-2" />
                 <span>Editar perfil</span>
               </button>
@@ -118,7 +122,11 @@ export function Profile() {
                       <User size={24} />
                       Dados pessoais
                     </h1>
-                    <UserInfo user={user} />
+                    <UserInfo
+                      user={user}
+                      isEditing={isEditing}
+                      setIsEditing={setIsEditing}
+                    />
                   </>
                 )}
                 {page === 1 && <Purchases purchases={mockPurchases} />}

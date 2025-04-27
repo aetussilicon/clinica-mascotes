@@ -1,7 +1,36 @@
 import { MapPinned } from "lucide-react";
 import { CustomerProps } from "../../props/CustomerProps";
+import React, { useState } from "react";
+import { CustomerUpdateProps } from "../../props/CustomerUpdateProps";
 
-const UserInfo = ({ user }: { user?: CustomerProps } = {}) => {
+interface UserInfoProps {
+  user: CustomerProps;
+  isEditing: boolean;
+  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const UserInfo: React.FC<UserInfoProps> = ({
+  user,
+  isEditing,
+  setIsEditing,
+}) => {
+  const [updateForm, setUpdateForm] = useState<CustomerUpdateProps>({
+    fullName: "",
+    email: "",
+    phone: "",
+    address: {
+      state: "",
+      city: "",
+      district: "",
+      number: "",
+      portalCode: "",
+      complement: "",
+    },
+    cpf: "",
+    rg: "",
+    birthDate: null,
+  });
+
   const TextField = ({ label, value }: { label: string; value: string }) => {
     return (
       <div className="flex flex-col gap-1 border max-w-full sm:max-w-[20rem] px-4 py-2 rounded-lg">
@@ -15,7 +44,7 @@ const UserInfo = ({ user }: { user?: CustomerProps } = {}) => {
           type="text"
           id="name"
           value={value}
-          readOnly
+          readOnly={!isEditing}
           className="bg-transparent text-gray-800"
         />
       </div>
@@ -45,6 +74,17 @@ const UserInfo = ({ user }: { user?: CustomerProps } = {}) => {
           <TextField label="Estado" value={user?.address?.state} />
           <TextField label="CEP" value={user?.address?.postalCode} />
         </div>
+        {isEditing && (
+          <div className="flex justify-end mt-10 gap-5">
+            <button
+              className="border p-2 rounded-lg text-lg"
+              onClick={() => setIsEditing(false)}
+            >
+              Cancelar
+            </button>
+            <button className="default-btn">Salvar</button>
+          </div>
+        )}
       </div>
     </div>
   );
