@@ -11,7 +11,7 @@ import { getCustomer } from "../services/CustomersService.tsx";
 export function Profile() {
   const { uuid } = useParams();
   const [page, setPage] = useState<number>(0);
-  const [user, setUser] = useState<CustomerProps>();
+  const [user, setUser] = useState<CustomerProps | undefined>(undefined);
   const [isEditing, setIsEditing] = useState<boolean>(false);
 
   useEffect(() => {
